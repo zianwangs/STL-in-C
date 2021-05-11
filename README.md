@@ -86,7 +86,7 @@ int main() {
 
 **Note**
 Vector(type) is not a type itself but a definition of struct, you could initialize all vectors of the same type together
-at the very beginning like what ANSI C required. If you do not want this, use typedef like sample Usage #2.
+at the very beginning like what ANSI C required. Calling Vector(type) twice is invalid, please instead use typedef like sample Usage #2.
 
 
 
