@@ -12,7 +12,7 @@ Then the ugly part comes, **whenever you want to use another obj', you have call
 Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
 
 
-**Vector Interface:
+**Vector Interface:**
 ```C
 void  push_back(T val); // automatically manage growing storage
 void  pop_back();       // no bound check, automatically manage shrinking storage
@@ -23,7 +23,7 @@ void  destory()         // destructor
 ```
 
 
-**Sample Usage # 1:
+**Sample Usage # 1:**
 ```C
 #include <stdio.h>
 #include "Vector.h"
@@ -51,7 +51,7 @@ int main() {
 }
 ```
 
-**Sample Usage # 2:
+**Sample Usage # 2:**
 ```C
 #include <stdio.h>
 #include "Vector.h"
