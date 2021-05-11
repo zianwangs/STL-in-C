@@ -11,7 +11,7 @@ To imitate OOP, the "Object.h" header file manages a this pointer which could on
  
 Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
 
-Sample Usage #1:
+Sample Usage # 1:
 ```C
 #include <stdio.h>
 #include "Vector.h"
@@ -38,7 +38,7 @@ int main() {
 }
 ```
 
-Sample Usage #1:
+Sample Usage # 2:
 ```C
 #include "stdio.h"
 #include "Vector.h"
@@ -46,14 +46,14 @@ Sample Usage #1:
 typedef Vector(double) Vector_double;
 
 int main() {
-     Vector(ptr) vec = DEFAULT_PTR_VECTOR;
-	    Vector_double d = DEFAULT_DOUBLE_VECTOR;
-	    Object.load(&d);
-	    d.push_back(2.5);
-	    d.push_back(3);
-	    Object.load(&vec);
-	    vec.push_back(&d);
-	    Vector_double * ptr = vec.back();
+    Vector(ptr) vec = DEFAULT_PTR_VECTOR;
+    Vector_double d = DEFAULT_DOUBLE_VECTOR;
+    Object.load(&d);
+    d.push_back(2.5);
+    d.push_back(3);
+    Object.load(&vec);
+    vec.push_back(&d);
+    Vector_double * ptr = vec.back();
 	    
      /*
      Vector(ptr) -> [(void*)]
@@ -61,11 +61,9 @@ int main() {
                         - - - - -> Vector(double) -> [2.5, 3]
      */  
      
-     Object.load(ptr);
-	    printf("%d\n",ptr->size()); // stdout : 2
-	    return 0;
-}
-     
+    Object.load(ptr);
+    printf("%d\n",ptr->size()); // stdout : 2
+    return 0;
 }
 ```
 
