@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-
+#include "stdio.h"
 #include "Vector.h"
+
 typedef Vector(double) Vector_double;
 int main(int argc, char const *argv[])
 {

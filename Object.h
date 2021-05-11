@@ -2,6 +2,7 @@
 #define _OBJECT_H_
 
 #include <stdlib.h>
+#include <string.h>
 
 #define CHAR   0
 #define SHORT  1
