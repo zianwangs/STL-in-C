@@ -23,7 +23,7 @@ int main() {
     Object.load(&vec) // switch this pointer
     
     for (int i = 0; i < 5; ++i)
-        vec.push_back(i)
+        vec.push_back(i);
         
      while (vec.size()) {
          printf("%d ", vec.back());
@@ -32,8 +32,8 @@ int main() {
      
      // stdout: 4 3 2 1 0
      
-     vec.destroy() // destructor
-     vec.push_back(1) // undefined behavior
+     vec.destroy(); // destructor
+     vec.push_back(1); // undefined behavior
      
 }
 ```
