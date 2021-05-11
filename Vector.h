@@ -18,8 +18,7 @@ Vector_size, Vector_double_back, Vector_destroy, DOUBLE}
 #define DEFAULT_PTR_VECTOR {0, 0, NULL, Vector_ptr_at, Vector_ptr_push_back, Vector_ptr_pop_back, \
 Vector_size, Vector_ptr_back, Vector_destroy, PTR}
 
-
-#define Vector(T) struct Vector {  \
+#define Vector(T) struct Vector_##T {  \
 	int size_;  \
 	int max_;  \
 	T * data_;  \
