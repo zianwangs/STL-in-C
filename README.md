@@ -12,6 +12,8 @@ Then the ugly part comes, **whenever you want to use another obj', you have call
 Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
 
 
+
+
 **Vector Interface:**
 ```C
 void  push_back(T val); // automatically manage growing storage
