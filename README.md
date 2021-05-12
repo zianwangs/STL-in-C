@@ -26,7 +26,7 @@ void  set(int idx, T val);  // no bound check
 ```
 
 
-**Sample Usage # 1:**
+**Sample Usage # 1: Vector**
 ```C
 #include <stdio.h>
 #include "Vector.h"
@@ -54,7 +54,7 @@ int main() {
 }
 ```
 
-**Sample Usage # 2:**
+**Sample Usage # 2: Vector**
 ```C
 #include <stdio.h>
 #include "Vector.h"
@@ -84,7 +84,7 @@ int main() {
 }
 ```
 
-**Sample Usage # 3:**
+**Sample Usage # 3: String**
 ```C
 #include <stdio.h>
 #include "String.h"
@@ -100,6 +100,32 @@ int main(int argc, char const *argv[])
         printf("%c", str.at(i));  
     // stdout:a nice ST?ING
 
+    return 0;
+}
+```
+
+**Sample Usage # 4: Queue**
+```C
+#include <stdio.h>
+#include "Queue.h"
+
+int main(int argc, char const *argv[])
+{
+	Queue(int) q = DEFAULT_INT_QUEUE;
+	Object.load(&q);
+	
+	q.push(1), q.push(2);   // 1 -> 2
+	q.pop();                // 2
+	q.push(4), q.push(5);
+	q.push(6), q.push(7);   // 2 -> 4 -> 5 -> 6 -> 7
+	q.pop(), q.pop();       // 5 -> 6 -> 7
+
+	while (q.size()) {
+		printf("%d ", q.front());
+		q.pop();  
+	}
+	// stdout: 5 6 7
+	
     return 0;
 }
 ```
