@@ -16,12 +16,13 @@ Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
 
 **Vector Interface:**
 ```C
-void  push_back(T val);  // automatically manage growing storage
-void  pop_back();        // no bound check, automatically manage shrinking storage
-T     at(int idx);       // no bound check
-T     back();            // no bound check
+void  push_back(T val);     // automatically manage growing storage
+void  pop_back();           // no bound check, automatically manage shrinking storage
+T     at(int idx);          // no bound check
+T     back();               // no bound check
 int   size(); 
-void  destory();         // destructor
+void  destory();            // destructor
+void  set(int idx, T val);  // no bound check
 ```
 
 
