@@ -47,8 +47,8 @@ int main() {
      
      // stdout: 4 3 2 1 0
      
-     vec.destroy(); // destructor
-     vec.push_back(1); // undefined behavior
+     vec.destroy(); // destructor, data pointer freed and set to NULL
+     vec.push_back(1); // Valid, malloc a new chunck of memory to data pointer
      
      return 0;
 }
