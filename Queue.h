@@ -28,7 +28,7 @@ typedef Vector(_float_)   _Vector_float_;
 typedef Vector(_double_)  _Vector_double_;
 typedef Vector(_ptr_)     _Vector_ptr_;
 
-#define Queue(T) struct Vector_##T {  \
+#define Queue(T) struct Queue_##T {  \
 	_Vector_##T##_ stack_in_; \
 	_Vector_##T##_ stack_out_; \
 	void (*push)(T);	\

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "Queue.h"
-
 int main(int argc, char const *argv[])
 {
 	Queue(int) q = DEFAULT_INT_QUEUE;
@@ -15,6 +14,11 @@ int main(int argc, char const *argv[])
 		printf("%d ", q.front());
 		q.pop();
 	}
+	q.destroy();
+	Vector(int) a = DEFAULT_INT_VECTOR;
+
+
+
 	
     return 0;
 }
