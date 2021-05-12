@@ -12,6 +12,13 @@
 #define DOUBLE 5
 #define PTR    6
 typedef void * ptr;
+typedef char _char_;
+typedef short _short_;
+typedef int _int_;
+typedef long _long_;
+typedef float _float_;
+typedef double _double_;
+typedef ptr _ptr_;
 
 void * this;
 

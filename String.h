@@ -8,7 +8,6 @@
 String_concat, String_append, String_c_str, String_destroy, String_set}
 
 typedef struct String String;
-typedef char _char_;
 typedef Vector(_char_) _basic_string_;
 struct String {
 	_basic_string_ vec_;

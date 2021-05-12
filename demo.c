@@ -1,16 +1,20 @@
 #include <stdio.h>
-#include "String.h"
+#include "Queue.h"
 
-//typedef Vector(double) Vector_double;
 int main(int argc, char const *argv[])
 {
-    String str = DEFAULT_STRING;
-    Object.load(&str);
-    str.push_back('a');
-    str.concat(" nice STRING ");
-    str.set(9,'?');
-    for (int i = 0; i < str.size(); ++i)
-        printf("%c", str.at(i));
+	Queue(int) q = DEFAULT_INT_QUEUE;
+	Object.load(&q);
+	
+	q.push(1), q.push(2);
+	q.pop();
+	q.push(4), q.push(5), q.push(6), q.push(7);
+	q.pop(), q.pop();
 
+	while (q.size()) {
+		printf("%d ", q.front());
+		q.pop();
+	}
+	
     return 0;
 }
