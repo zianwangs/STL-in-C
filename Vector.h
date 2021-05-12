@@ -86,10 +86,9 @@ int Vector_size() {
 void Vector_destroy() {
 	void * data = *(void**)(this + 8);
 	free(data);
-	int * size_ptr = this;
-	int * max_ptr = this + 4;
-	*size_ptr = 0;
-	*max_ptr = 0;
+	*(int*)this = 0;
+	*(int*)(this + 4) = 0;
+	*(void**)(this + 8) = NULL;
 }
 
 #define Vector_set(T) void Vector_##T##_set(int idx, T val) { \
