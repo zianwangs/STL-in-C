@@ -1,19 +1,16 @@
-#include "stdio.h"
-#include "Vector.h"
+#include <stdio.h>
+#include "String.h"
 
-typedef Vector(double) Vector_double;
+//typedef Vector(double) Vector_double;
 int main(int argc, char const *argv[])
 {
-	Vector(ptr) vec = DEFAULT_PTR_VECTOR;
-	Vector_double d = DEFAULT_DOUBLE_VECTOR;
-	Object.load(&d);
-	d.push_back(2.5);
-	d.push_back(3);
-	Object.load(&vec);
-	vec.push_back(&d);
-	Vector_double * ptr = vec.back();
-	Object.load(ptr);
-	printf("%d\n",ptr->size());
-		// v.push_back = Vector_push_back(int);
-	return 0;
+    String str = DEFAULT_STRING;
+    Object.load(&str);
+    str.push_back('a');
+    str.concat(" nice STRING ");
+    str.set(9,'?');
+    for (int i = 0; i < str.size(); ++i)
+        printf("%c", str.at(i));
+
+    return 0;
 }

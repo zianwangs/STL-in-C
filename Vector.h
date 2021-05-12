@@ -4,19 +4,19 @@
 #include "Object.h"
 
 #define DEFAULT_CHAR_VECTOR {0, 0, NULL, Vector_char_at, Vector_char_push_back, Vector_char_pop_back, \
-Vector_size, Vector_char_back, Vector_destroy, CHAR}
+Vector_size, Vector_char_back, Vector_destroy, Vector_char_set}
 #define DEFAULT_SHORT_VECTOR {0, 0, NULL, Vector_short_at, Vector_short_push_back, Vector_short_pop_back, \
-Vector_size, Vector_short_back, Vector_destroy, SHORT}
+Vector_size, Vector_short_back, Vector_destroy, Vector_short_set}
 #define DEFAULT_INT_VECTOR {0, 0, NULL, Vector_int_at, Vector_int_push_back, Vector_int_pop_back, \
-Vector_size, Vector_int_back, Vector_destroy, INT}
+Vector_size, Vector_int_back, Vector_destroy, Vector_int_set}
 #define DEFAULT_LONG_VECTOR {0, 0, NULL, Vector_long_at, Vector_long_push_back, Vector_long_pop_back, \
-Vector_size, Vector_long_back, Vector_destroy, LONG}
+Vector_size, Vector_long_back, Vector_destroy, Vector_long_set}
 #define DEFAULT_FLOAT_VECTOR {0, 0, NULL, Vector_float_at, Vector_float_push_back, Vector_float_pop_back, \
-Vector_size, Vector_float_back, Vector_destroy, FLOAT}
+Vector_size, Vector_float_back, Vector_destroy, Vector_float_set}
 #define DEFAULT_DOUBLE_VECTOR {0, 0, NULL, Vector_double_at, Vector_double_push_back, Vector_double_pop_back, \
-Vector_size, Vector_double_back, Vector_destroy, DOUBLE}
+Vector_size, Vector_double_back, Vector_destroy, Vector_double_set}
 #define DEFAULT_PTR_VECTOR {0, 0, NULL, Vector_ptr_at, Vector_ptr_push_back, Vector_ptr_pop_back, \
-Vector_size, Vector_ptr_back, Vector_destroy, PTR}
+Vector_size, Vector_ptr_back, Vector_destroy, Vector_ptr_set}
 
 #define Vector(T) struct Vector_##T {  \
 	int size_;  \
@@ -28,7 +28,7 @@ Vector_size, Vector_ptr_back, Vector_destroy, PTR}
 	int (*size)();  \
 	T (*back)(); \
 	void (*destroy)(); \
-	int type_; \
+	void (*set)(int, T); \
 }
 
 #define Vector_push_back(T) void Vector_##T##_push_back(T val) { \
@@ -44,8 +44,8 @@ Vector_size, Vector_ptr_back, Vector_destroy, PTR}
 		*max_ptr = new_max; \
 		free(data); \
 		*data_ptr = new_data; \
+		data = *data_ptr; \
 	} \
-	data = *data_ptr; \
 	data[(*size_ptr)++] = val;\
 };
 
@@ -75,6 +75,7 @@ Vector_size, Vector_ptr_back, Vector_destroy, PTR}
 		free(data); \
 		*data_ptr = new_data; \
 	} \
+	data[size] = 0; \
 }
 
 int Vector_size() {
@@ -85,6 +86,15 @@ int Vector_size() {
 void Vector_destroy() {
 	void * data = *(void**)(this + 8);
 	free(data);
+	int * size_ptr = this;
+	int * max_ptr = this + 4;
+	*size_ptr = 0;
+	*max_ptr = 0;
+}
+
+#define Vector_set(T) void Vector_##T##_set(int idx, T val) { \
+	T * data = *(void**)(this + 8); \
+	data[idx] = val; \
 }
 
 Vector_push_back(char);
@@ -115,5 +125,13 @@ Vector_pop_back(long);
 Vector_pop_back(float);
 Vector_pop_back(double);
 Vector_pop_back(ptr);
+Vector_set(char);
+Vector_set(short);
+Vector_set(int);
+Vector_set(long);
+Vector_set(float);
+Vector_set(double);
+Vector_set(ptr);
+
 
 #endif
