@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 		q.pop();
 	}
 	q.destroy();
-	Vector(int) a = DEFAULT_INT_VECTOR;
+
 
 
 

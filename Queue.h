@@ -95,6 +95,7 @@ int Queue_size() {
 	_Vector_##T##_ * stack_out_ptr = this + 72; \
 	Object.load(stack_out_ptr); \
 	stack_out_ptr->destroy(); \
+	Object.load(stack_in_ptr); \
 }
 
 Queue_push(char);
