@@ -130,7 +130,7 @@ int HashSet_size() {
 }
 
 
-#define HashSet_destroy(T) void HashSet_##T##_destroy(T val) { \
+#define HashSet_destroy(T) void HashSet_##T##_destroy() { \
 	int * size_ptr = this; \
 	int * max_ptr = this + 4; \
 	void ** data_ptr = this + 8; \
