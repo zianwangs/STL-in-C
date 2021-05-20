@@ -1,21 +1,14 @@
 #include <stdio.h>
-#include "Queue.h"
+#include "HashSet.h"
 int main(int argc, char const *argv[])
 {
-	Queue(int) q = DEFAULT_INT_QUEUE;
-	Object.load(&q);
-	
-	q.push(1), q.push(2);
-	q.pop();
-	q.push(4), q.push(5), q.push(6), q.push(7);
-	q.pop(), q.pop();
-
-	while (q.size()) {
-		printf("%d ", q.front());
-		q.pop();
-	}
-	q.destroy();
-
+	HashSet(int) seen = DEFAULT_INT_HASHSET;
+	Object.load(&seen);
+	seen.insert(1);
+	seen.insert(1);
+	seen.insert(2);
+	seen.erase(1);
+	printf("%d\n", seen.size());
 
 
 

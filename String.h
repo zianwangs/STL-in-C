@@ -5,7 +5,7 @@
 #include "Vector.h"
 
 #define DEFAULT_STRING {DEFAULT_CHAR_VECTOR, String_size, String_at, String_push_back, String_pop_back, \
-String_concat, String_append, String_c_str, String_destroy, String_set}
+String_concat, String_append, String_c_str, String_destroy, String_set, String_copy}
 
 typedef struct String String;
 typedef Vector(_char_) _basic_string_;
@@ -20,6 +20,7 @@ struct String {
 	char* (*c_str)();
 	void (*destroy)();
 	void (*set)(int, char);
+	String (*copy)();
 };
 
 int String_size() {
@@ -66,6 +67,18 @@ void String_destroy() {
 	
 void String_set(int idx, char c) {
 	((_basic_string_*)this)->set(idx, c);
+}
+
+String String_copy() {
+	String ans = DEFAULT_STRING;
+	_basic_string_ * copy = (void*)&ans;
+	_basic_string_ * str = this;
+	int size = copy->size_ = str->size_;
+	int max = copy->max_ = str->max_;
+	copy->data_ = malloc(max * sizeof(char));
+	for (int i = 0; i < size; ++i)
+		copy->data_[i] = str->data_[i];
+	return ans;
 }
 
 #endif
