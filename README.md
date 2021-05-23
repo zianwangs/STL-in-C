@@ -190,7 +190,7 @@ int main()
 	map.erase(3);
 	printf("%d\n", map.get(3)); // stdout: 0  (0 returned for key which does not exist)
 	
-    	return 0;
+    return 0;
 }
 ```
 
@@ -217,6 +217,33 @@ int main()
 	*/
 	
    	return 0;
+}
+```
+
+**Sample Usage # 8: PriorityQueue**
+```C
+#include <stdio.h>
+#include "PriorityQueue.h"
+
+int main()
+{
+	PriorityQueue(int) heap = {DEFAULT_INT_PQ, GREATER};
+	Object.load(&heap);
+
+	heap.push(1);
+	heap.push(1);
+	heap.push(10);
+	heap.push(6);
+	heap.push(5);
+	heap.push(0);
+
+	while (heap.size()) {
+		printf("%d ", heap.top());
+		heap.pop();
+	}
+	// stdout: 0 1 1 5 6 10 
+	
+    return 0;
 }
 ```
 
