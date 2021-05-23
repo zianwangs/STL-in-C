@@ -11,6 +11,27 @@ Then the ugly part comes, **whenever you want to use another obj', you have call
  
 Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
 
+**Sample Usage # 0: Using STL-in-C for lc-twosum**
+```C
+#include "HashMap.h"
+
+int* twoSum(int* nums, int numsSize, int target, int* ret){
+    int * ans = malloc(8);
+    HashMap(int,int) map = DEFAULT_INT_INT_HASHMAP;
+    Object.load(&map);
+    for (int i = 0; i < numsSize; ++i) {
+        int cur = nums[i];
+        if (map.containsKey(target - cur)) {
+            ans[0] = map.get(target - cur);
+            ans[1] = i;
+            *ret = 2;
+            return ans;
+        }
+        map.emplace(cur, i);
+    }
+    return NULL;
+}
+```
 
 
 
@@ -172,6 +193,7 @@ int main()
     	return 0;
 }
 ```
+
 
 
 **Note**
