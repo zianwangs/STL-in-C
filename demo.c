@@ -1,16 +1,21 @@
 #include <stdio.h>
 
-#include "Deque.h"
+#include "PriorityQueue.h"
 int main()
 {
-	Deque(int) q = DEFAULT_INT_DEQUE;
-	Object.load(&q);
-	for (int i = 0; i < 6; ++i)
-		q.push_front(i);
-	while (q.size()) {
-		printf("%d %d\n", q.front(), q.back());
-		q.pop_front();
-		q.pop_back();
+	PriorityQueue(int) heap = {DEFAULT_INT_PQ, GREATER};
+	Object.load(&heap);
+
+	heap.push(1);
+	heap.push(1);
+	heap.push(10);
+	heap.push(6);
+	heap.push(5);
+	heap.push(0);
+
+	while (heap.size()) {
+		printf("%d\n", heap.top());
+		heap.pop();
 	}
 	
     return 0;
