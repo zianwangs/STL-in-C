@@ -90,7 +90,7 @@ int PQ_size() {
 }
 #define PQ_destroy(T) void PQ_##T##_destroy() { \
 	((_Vector_##T##_*)this)->destroy(); \
-	*(int*)(this + 112) = 0; \
+	// *(int*)(this + 112) = 0; \
 }
 
 PQ_push(int);
