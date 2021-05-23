@@ -207,9 +207,11 @@ void HashSet_String_destroy()  {
 HashSet_contains(int);
 HashSet_contains(long);
 HashSet_contains(ptr);
+HashSet_contains(String);
 HashSet_insert(int);
 HashSet_insert(long);
 HashSet_insert(ptr);
+HashSet_insert(String);
 HashSet_erase(int);
 HashSet_erase(long);
 HashSet_erase(ptr);

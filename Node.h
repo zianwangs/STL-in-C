@@ -4,6 +4,10 @@
 #include "Object.h"
 #include "String.h"
 
+typedef struct Node_char Node_char;
+typedef struct Node_float Node_float;
+typedef struct Node_double Node_double;
+typedef struct Node_short Node_short;
 typedef struct Node_int Node_int;
 typedef struct Node_long Node_long;
 typedef struct Node_ptr Node_ptr;
@@ -47,6 +51,10 @@ void Node_connect(void * father, void * son) {
 UniNode(int);
 UniNode(long);
 UniNode(ptr);
+UniNode(char);
+UniNode(short);
+UniNode(float);
+UniNode(double);
 UniNode(String);
 
 BiNode(int,int);

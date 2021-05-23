@@ -1,18 +1,17 @@
 #include <stdio.h>
 
-#include "HashMap.h"
-int main(int argc, char const *argv[])
+#include "Deque.h"
+int main()
 {
-	HashMap(int,int) map = DEFAULT_INT_INT_HASHMAP;
-	Object.load(&map);
-	map.emplace(1, 3);
-	map.emplace(1, 4);
-	printf("%d\n", map.size()); // stdout: 1
-	map.emplace(3, 5);
-	map.erase(1);
-	map.erase(2);
-	map.erase(3);
-	printf("%d\n", map.get(3)); // stdout: 0  (0 returned for key which does not exist)
+	Deque(int) q = DEFAULT_INT_DEQUE;
+	Object.load(&q);
+	for (int i = 0; i < 6; ++i)
+		q.push_front(i);
+	while (q.size()) {
+		printf("%d %d\n", q.front(), q.back());
+		q.pop_front();
+		q.pop_back();
+	}
 	
     return 0;
 }
