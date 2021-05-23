@@ -14,7 +14,7 @@ int main()
 	heap.push(0);
 
 	while (heap.size()) {
-		printf("%d\n", heap.top());
+		printf("%d ", heap.top());
 		heap.pop();
 	}
 	
