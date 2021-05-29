@@ -238,8 +238,8 @@ int main()
 	heap.push(0);
 
 	while (heap.size()) {
-		printf("%d ", heap.top());
-		heap.pop();
+	    printf("%d ", heap.top());
+	    heap.pop();
 	}
 	// stdout: 0 1 1 5 6 10 
 	
