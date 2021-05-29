@@ -142,8 +142,8 @@ int main(int argc, char const *argv[])
 	q.pop(), q.pop();       // 5 -> 6 -> 7
 
 	while (q.size()) {
-		printf("%d ", q.front());
-		q.pop();  
+	    printf("%d ", q.front());
+	    q.pop();  
 	}
 	// stdout: 5 6 7
 	
@@ -208,7 +208,7 @@ int main()
 	while (q.size()) {
 	    printf("%d %d\n", q.front(), q.back());
 	    q.pop_front();
-		q.pop_back();
+	    q.pop_back();
 	}
 	/* stdout: 
 		5 0
