@@ -183,7 +183,7 @@ int main()
 	map.erase(1);
 	map.erase(2);
 	map.erase(3);
-	printf("%d\n", map.get(3)); // stdout: 0  (0 returned for key which does not exist)
+	printf("%d\n", map.get(3)); // stdout: 0  (0 returned for keys that do not exist)
 	
     return 0;
 }
