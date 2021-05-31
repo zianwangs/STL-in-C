@@ -3,38 +3,7 @@ Implemented some basic simple STL containers using C, probably come in handy whe
 
 This is a **single-thread** OOP solution for C. It is a little bit ugly but to some degree gives you illusion as if you were programming in C++.
 
-To imitate OOP, the "Object.h" header file manages a this pointer which could only point to a single object at any time, and that's why it only works in single-thread scenarios like most OJ. After initializing an **obj** and before you call any of its **method**, call **Object.load(&obj)** and then you could just program like C++.
- 
- 
-Then the ugly part comes, **whenever you want to use another obj', you have call Object.load(&obj'). So, if your code have to switch frequently between objects, the code would probably look messy.**
- 
- 
-Vector only supports 6 basic types (does not support unsigned) and ptr(void *).
-
-**Sample Usage # 0: Using STL-in-C for lc-twosum**
-```C
-#include "HashMap.h"
-
-int* twoSum(int* nums, int numsSize, int target, int* ret){
-    int * ans = malloc(8);
-    HashMap(int,int) map = DEFAULT_INT_INT_HASHMAP;
-    Object.load(&map);
-    for (int i = 0; i < numsSize; ++i) {
-        int cur = nums[i];
-        if (map.containsKey(target - cur)) {
-            ans[0] = map.get(target - cur);
-            ans[1] = i;
-            *ret = 2;
-            return ans;
-        }
-        map.emplace(cur, i);
-    }
-    return NULL;
-}
-```
-
-
-
+To imitate OOP, the "Object.h" header file manages a this pointer which could only point to a single object at any time, and that's why it only works in single-thread scenarios like most OJ. After initializing an **obj** and before you call any of its **method**, call **Object.load(&obj)**. Then the ugly part comes, **whenever you want to use another obj', you need to make another call to Object.load(&obj')**. So, if you got to switch frequently between objects, the code would probably end up in a mess. Apart from this additional overhead, you could just program like C++ as interfaces are nearly the same as their C++ version, for example:
 **Vector Interface:**
 ```C
 void  push_back(T val);     // automatically manage growing storage
@@ -44,6 +13,31 @@ T     back();               // no bound check
 int   size(); 
 void  destory();            // destructor
 void  set(int idx, T val);  // no bound check
+```
+
+Most containers support 6 basic types (does not support unsigned) and ptr(void * ). HashSet and HashMap only support int, double, ptr, and String.
+ 
+
+**Sample Usage # 0: Using STL-in-C for LC-twosum**
+```C
+#include "HashMap.h"
+
+int* twoSum(int* nums, int numsSize, int target, int* retSize){
+    int * ans = malloc(8);
+    HashMap(int,int) map = DEFAULT_INT_INT_HASHMAP;
+    Object.load(&map);
+    for (int i = 0; i < numsSize; ++i) {
+        int cur = nums[i];
+        if (map.containsKey(target - cur)) {
+            ans[0] = map.get(target - cur);
+            ans[1] = i;
+            *retSize = 2;
+            return ans;
+        }
+        map.emplace(cur, i);
+    }
+    return NULL;
+}
 ```
 
 
