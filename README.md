@@ -6,6 +6,7 @@ This is a **single-thread** OOP solution for C. It is a little bit ugly but to s
 To imitate OOP, the "Object.h" header file manages a this pointer which could only point to a single object at any time, and that's why it only works in single-thread scenarios like most OJ. After initializing an **obj** and before you call any of its **method**, call **Object.load(&obj)**. Then the ugly part comes, **whenever you want to use another obj', you need to make another call to Object.load(&obj')**. So, if you got to switch frequently between objects, the code would probably end up in a mess. Apart from this additional overhead, you could just program like C++ as interfaces are nearly the same as their C++ version, for example:
 ```C
 /* Vector Interface: */
+
 void  push_back(T val);     // automatically manage growing storage
 void  pop_back();           // no bound check, automatically manage shrinking storage
 T     at(int idx);          // no bound check
