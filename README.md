@@ -19,7 +19,7 @@ void  set(int idx, T val);  // no bound check
 Most containers support 6 basic types (does not support unsigned) and ptr(void * ). HashSet and HashMap only support int, double, ptr, and String.
  
 
-**Sample Usage # 0: Using STL-in-C for LC-twosum**
+**Sample Usage # 0: Using STL-in-C to solve classical TwoSum**
 ```C
 #include "HashMap.h"
 
