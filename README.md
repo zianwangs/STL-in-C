@@ -23,7 +23,7 @@ Most containers support 6 basic types (does not support unsigned) and ptr(void *
 ```C
 #include "HashMap.h"
 
-int* twoSum(int* nums, int numsSize, int target, int* retSize){
+int* twoSum(int* nums, int numsSize, int target){
     int * ans = malloc(8);
     HashMap(int,int) map = DEFAULT_INT_INT_HASHMAP;
     Object.load(&map);
@@ -32,7 +32,6 @@ int* twoSum(int* nums, int numsSize, int target, int* retSize){
         if (map.containsKey(target - cur)) {
             ans[0] = map.get(target - cur);
             ans[1] = i;
-            *retSize = 2;
             return ans;
         }
         map.emplace(cur, i);
